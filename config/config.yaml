@@ -5,8 +5,8 @@ data_ingestion:
   source_URL: https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip
   local_data_file: artifacts/data_ingestion/data.zip
   unzip_dir:  artifacts/data_ingestion
-  training_data: artifacts/data_ingestion/data/train
-  validation_data: artifacts/data_ingestion/data/valid
+  training_data: artifacts/data_ingestion/dogImages/train
+  validation_data: artifacts/data_ingestion/dogImages/valid
 prepare_base_model:
   root_dir: artifacts/prepare_base_model
   base_model_path: artifacts/prepare_base_model/base_model.h5
