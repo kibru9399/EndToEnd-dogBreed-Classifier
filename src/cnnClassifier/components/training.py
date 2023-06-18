@@ -18,7 +18,7 @@ class Training:
 
         datagenerator_kwargs = dict(
             rescale = 1./255,
-            validation_split=0
+            validation_split=0.20
         )
 
         dataflow_kwargs = dict(
@@ -26,8 +26,20 @@ class Training:
             batch_size=self.config.params_batch_size,
             interpolation="bilinear"
         )
+
+        valid_datagenerator = tf.keras.preprocessing.image.ImageDataGenerator(
+            **datagenerator_kwargs
+        )
+
+        self.valid_generator = valid_datagenerator.flow_from_directory(
+            directory=self.config.training_data,
+            subset="validation",
+            shuffle=False,
+            **dataflow_kwargs
+        )
+
         if self.config.params_is_augmentation:
-            datagenerator = tf.keras.preprocessing.image.ImageDataGenerator(
+            train_datagenerator = tf.keras.preprocessing.image.ImageDataGenerator(
                 rotation_range=40,
                 horizontal_flip=True,
                 width_shift_range=0.2,
@@ -37,17 +49,11 @@ class Training:
                 **datagenerator_kwargs
             )
         else:
-            datagenerator = tf.keras.preprocessing.image.ImageDataGenerator(
-                **datagenerator_kwargs
-            )
+            train_datagenerator = valid_datagenerator
 
-        self.valid_generator = datagenerator.flow_from_directory(
-            directory=self.config.validation_data,
-            shuffle=False,
-            **dataflow_kwargs
-        )
-        self.train_generator = datagenerator.flow_from_directory(
+        self.train_generator = train_datagenerator.flow_from_directory(
             directory=self.config.training_data,
+            subset="training",
             shuffle=True,
             **dataflow_kwargs
         )
