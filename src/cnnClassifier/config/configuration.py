@@ -70,7 +70,7 @@ class ConfigurationManager:
     def get_validation_config(self) -> EvaluationConfig:
         validation_config = EvaluationConfig(
             path_of_model='artifacts/training/model.h5',
-            training_data= 'artifacts/data_ingestion/data/test',
+            training_data= 'artifacts/data_ingestion/low-resolution',
             all_params = self.params,
             params_image_size = self.params.IMAGE_SIZE,
             params_batch_size=self.params.BATCH_SIZE
