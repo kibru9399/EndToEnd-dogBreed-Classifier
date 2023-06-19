@@ -2,7 +2,7 @@ artifacts_root: artifacts
 
 data_ingestion:
   root_dir: artifacts/data_ingestion/low-resolution
-  source_URL: https://cloud.tsinghua.edu.cn/seafhttp/files/84547ada-c89e-421c-b615-6cff4ebc070a/low-resolution.zip
+  source_URL: https://cloud.tsinghua.edu.cn/seafhttp/files/dda5dc0c-10ec-41b7-b33e-881e91045cc3/low-resolution.zip
   local_data_file: artifacts/data_ingestion/low-resolution.zip
   unzip_dir:  artifacts/data_ingestion
   training_data: artifacts/data_ingestion/low-resolution
