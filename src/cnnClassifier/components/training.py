@@ -17,7 +17,7 @@ class Training:
     def train_valid_generator(self):
 
         datagenerator_kwargs = dict(
-            rescale = 1./255,
+            #rescale = 1./255,
             validation_split=0.20
         )
 
@@ -46,7 +46,9 @@ class Training:
                 height_shift_range=0.2,
                 shear_range=0.2,
                 zoom_range=0.2,
-                **datagenerator_kwargs
+                **datagenerator_kwargs, 
+                preprocessing_function=tf.keras.applications.resnet50.preprocess_input
+        
             )
         else:
             train_datagenerator = valid_datagenerator
