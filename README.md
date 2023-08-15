@@ -9,7 +9,7 @@ The images are high-quality and well-labeled.
 The dataset is publicly available for research purposes.https://cg.cs.tsinghua.edu.cn/ThuDogs/
 
 ## About the project and workflow
-The main purpose of this project is to do end to end machine learning project by following best ML practices. Sure, here is a two-paragraph description of your machine learning workflow:
+The main purpose of this project is to do end to end machine learning project by following best ML practices. 
 
 This end-to-end machine learning project focuses on the detection of dog breed using a deep learning model. The project follows a CI/CD workflow with GitHub Actions and EC2 deployment.
 
